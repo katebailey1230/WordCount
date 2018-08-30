@@ -1,29 +1,30 @@
+{% block content %}
+
 <h1>There are {{ count }} words in your text</h1>
+<h2><button class="btn btn-primary btn-lg" align="right"><a href="{% url 'home' %}">Start Again</a></h2>
 
 
-<h1>Your Text:</h1>
+
+<h3>Your Text:</h3>
 {{ fulltext }}
 
-<h1>Word Count:</h1>
-
+<h1 align="center">Word Count:</h1>
   {% for word, counttotal in sortedwords %}
-<table>
-  <thead>
+<table width="400" callpadding="0" cellspacing="5">
     <tr>
-      <th>Word</th>
-      <th>Times Used</th>
-      <th>Percentage Used</th>
-      <th>Synonyms</th>
-    <tr/>
-  </thead>
+      <th width="150" align="left">Word</th>
+      <br />
+      <th width ="150">Times Used</th>
+      <th></th>
+      <th></th>
+    </tr>
+    <tr>
+      <td width="150" align="left">{{ word }}</td>
+      <br />
+      <td align="center">{{ counttotal }}</td>
+    </tr>
   <tbody>
-    <tr>
-      <th>{{ word }}</th>
-      <td>{{ counttotal }}</td>
-      <td>{{ percent }} </td>
-      <td></td>
-  <br />
 
-{% endfor %}
+  {% endfor %}
 
-<a href="{% url 'home' %}">Start Again</a>
+  {% endblock %}
